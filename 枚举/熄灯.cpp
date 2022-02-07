@@ -3,15 +3,15 @@
 #include<iostream>
 #include<cstring>
 using namespace std;
-char oriLights[5]; //½¨Òé¶à¿ªÒ»µã±ÜÃâ´íÎó
+char oriLights[5]; //å»ºè®®å¤šå¼€ä¸€ç‚¹é¿å…é”™è¯¯
 char lights[5];
 char result[5];
 
 int GetBit(char c, int i)
 {
-	return (c >> i) & 1; //get cµÄµÚiÎ» cÓÒÒÆiÎ»
+	return (c >> i) & 1; //get cçš„ç¬¬iä½ cå³ç§»iä½
 }
-void SetBit(char& c, int i, int v) //°ÉcµÄµÚiÎ»¸Ä³Év
+void SetBit(char& c, int i, int v) //å§cçš„ç¬¬iä½æ”¹æˆv
 {
 	if (v)
 	{
@@ -22,7 +22,7 @@ void SetBit(char& c, int i, int v) //°ÉcµÄµÚiÎ»¸Ä³Év
 		c &= ~(1 << i);
 	}
 }
-void FlipBit(char& c, int i) //°ÑµÚiÎ»·´×ª
+void FlipBit(char& c, int i) //æŠŠç¬¬iä½åè½¬
 {
 	c ^= (1 << i);
 }
@@ -45,7 +45,7 @@ void OutputResult(int i, char result[])
 int main()
 {
 	int T;
-	cin >> T; //¶ÁÈë²âÊÔÊı¾İ×éÊı
+	cin >> T; //è¯»å…¥æµ‹è¯•æ•°æ®ç»„æ•°
 	for (int t = 1; t <= T; ++t)
 	{
 		for (int i = 0; i < 5; ++i)
@@ -53,34 +53,34 @@ int main()
 			for (int j = 0; j < 6; ++j)
 			{
 				int s;
-				cin >> s; //°ÑµÚiĞĞµÚjÁĞµÄ×´Ì¬´æÈës
+				cin >> s; //æŠŠç¬¬iè¡Œç¬¬jåˆ—çš„çŠ¶æ€å­˜å…¥s
 
-				SetBit(oriLights[i], j, s);  //°ÑorilightsµÄµÚi¸öµÚj¸öbitÉèÎªs
+				SetBit(oriLights[i], j, s);  //æŠŠorilightsçš„ç¬¬iä¸ªç¬¬jä¸ªbitè®¾ä¸ºs
 			}
 		}
 		for (int n = 0; n < 64; ++n)
 		{
-			int switchs = n;// ÓÃn±íÊ¾2^5ÖÖµÚÒ»ĞĞ¿ª¹Ø×´Ì¬
-			memcpy(lights, oriLights, sizeof(oriLights));//lights¸´ÖÆÓÃÓÚ±íÊ¾µ±Ç°Ñ­»·µÆµÄ×´Ì¬
+			int switchs = n;// ç”¨nè¡¨ç¤º2^5ç§ç¬¬ä¸€è¡Œå¼€å…³çŠ¶æ€
+			memcpy(lights, oriLights, sizeof(oriLights));//lightså¤åˆ¶ç”¨äºè¡¨ç¤ºå½“å‰å¾ªç¯ç¯çš„çŠ¶æ€
 			for (int i = 0; i < 5; ++i)
 			{
 				result[i] = switchs;
 				for (int j = 0; j < 6; j++)
 				{
-					if (GetBit(switchs, j))// ¿ª¹ØÎª1ÒâÎ¶×ÅÒª¸Ä±äµÆµÄ×´Ì¬
+					if (GetBit(switchs, j))// å¼€å…³ä¸º1æ„å‘³ç€è¦æ”¹å˜ç¯çš„çŠ¶æ€
 					{
 						if (j > 0)
 							FlipBit(lights[i], j - 1);
 						FlipBit(lights[i], j);
 						if (j < 5)
 							FlipBit(lights[i], j + 1);
-					}// ¶ÔÍ¬Ò»ĞĞµÆµÄ´¦Àí
+					}// å¯¹åŒä¸€è¡Œç¯çš„å¤„ç†
 				}
-				if (i < 4) //ÔÚ×îºóÒ»ĞĞÇ°£¬Òª¶Ôi+1ĞĞ´¦Àí
-					lights[i + 1] ^= switchs;//Èç¹ûswitchsÊÇ1£¬ÕâÒ»ĞĞ¶ÔÓ¦Î»ÖÃ¸Ä±ä
-				switchs = lights[i];//ÎªÁËÊ¹µÚiĞĞµÆÈ«Ãğ£¬µÚi+1ĞĞ¿ª¹Ø×´Ì¬±ØĞëÊÇµÚiĞĞµÆ×´Ì¬
+				if (i < 4) //åœ¨æœ€åä¸€è¡Œå‰ï¼Œè¦å¯¹i+1è¡Œå¤„ç†
+					lights[i + 1] ^= switchs;//å¦‚æœswitchsæ˜¯1ï¼Œè¿™ä¸€è¡Œå¯¹åº”ä½ç½®æ”¹å˜
+				switchs = lights[i];//ä¸ºäº†ä½¿ç¬¬iè¡Œç¯å…¨ç­ï¼Œç¬¬i+1è¡Œå¼€å…³çŠ¶æ€å¿…é¡»æ˜¯ç¬¬iè¡Œç¯çŠ¶æ€
 			}
-			if (lights[4] == 0)// ÕâÑùÔÚÏÈ¹Ì¶¨µÚÒ»ĞĞÕâ¸ö¾Ö²¿µÄÍ¬Ê±È·±£Ç°ËÄĞĞµÆÈ«Ãğ£¬Ö»ĞèÒª¿´×îºóÒ»ĞĞ¡£
+			if (lights[4] == 0)// è¿™æ ·åœ¨å…ˆå›ºå®šç¬¬ä¸€è¡Œè¿™ä¸ªå±€éƒ¨çš„åŒæ—¶ç¡®ä¿å‰å››è¡Œç¯å…¨ç­ï¼Œåªéœ€è¦çœ‹æœ€åä¸€è¡Œã€‚
 			{
 				OutputResult(t, result);
 				break;
