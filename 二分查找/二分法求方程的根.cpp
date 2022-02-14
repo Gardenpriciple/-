@@ -9,7 +9,7 @@ int main()
 {
 	double root, x1 = 0, x2 = 100, y;
 	root = x1 + (x2 - x1) / 2;
-	int triedTimes = 1; //¼ÇÂ¼Ò»¹²³¢ÊÔ¶àÉÙ´Î£¬¶ÔÇò¸ù²»ÊÇ±ØÐëµÄ/
+	int triedTimes = 1; //è®°å½•ä¸€å…±å°è¯•å¤šå°‘æ¬¡ï¼Œå¯¹çƒæ ¹ä¸æ˜¯å¿…é¡»çš„/
 	y = f(root);
 	
 	while (fabs(y) >= EPS)
