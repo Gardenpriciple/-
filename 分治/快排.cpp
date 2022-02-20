@@ -1,14 +1,14 @@
 #include<iostream>
 using namespace std;
 
-void swap(int & a, int & b) //ÓÃÒıÓÃ¸Ä±äÊµ²ÎµÄÖµ
+void swap(int & a, int & b) //ç”¨å¼•ç”¨æ”¹å˜å®å‚çš„å€¼
 {
 	int tmp = a;
 	a = b;
 	b = tmp;
 }
 
-void QuickSort(int a[], int s, int e) //s e Ö¸´ıÅÅĞòµÄ·¶Î§
+void QuickSort(int a[], int s, int e) //s e æŒ‡å¾…æ’åºçš„èŒƒå›´
 {
 	if (s >= e)
 		return;
