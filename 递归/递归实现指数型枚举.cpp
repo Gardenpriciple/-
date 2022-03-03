@@ -34,5 +34,5 @@ int main()
 {
     cin >> n;
     
-    dfs(0);
+    dfs(1);
 }
