@@ -78,7 +78,7 @@ int main()
     }
     
     cout << res.size() << endl;
-    for (auto op : res) cout << op.x+1 << ' ' << op.y+1 <<endl;
+    for (int i = 0; i < res.size(); i ++ ) cout << res[i].x+1 << ' ' << res[i].y+1 <<endl;
     
     return 0;
 }
