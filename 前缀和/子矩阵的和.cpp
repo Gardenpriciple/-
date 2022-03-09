@@ -18,7 +18,7 @@ int main()
 		for (int j = 1; j <= m; j++)
 		{
 			scanf("%d", &a[i][j]);
-			s[i][j] = s[i - 1][j - 1] + s[i][j - 1] + s[i - 1][j] + s[i - 1][j - 1];
+			s[i][j] = a[i][j] + s[i - 1][j] + s[i][j - 1] - s[i - 1][j - 1];
 		}
 
 	while (q--)
