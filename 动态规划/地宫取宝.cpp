@@ -33,7 +33,7 @@ int main()
 					int& val = f[i][j][u][v];//引用
 					val = (val + f[i - 1][j][u][v]) % Mod;
 					val = (val + f[i][j - 1][u][v]) % Mod;//先更新i和j，先枚举不取的方案
-					if (u > 0 && v == w[i][j])
+					if (u > 0 && v == w[i][j])//下面用到u - 1, u小于0会越界
 					{
 						for (int c = 0; c < v; c++)
 						{
