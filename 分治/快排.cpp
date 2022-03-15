@@ -21,7 +21,7 @@ void QuickSort(int a[], int s, int e) //s e 指待排序的范围
 			--j;
 		swap(a[i], a[j]);
 		while (i < j && a[i] <= k)
-			++j;
+			++i;
 		swap(a[i], a[j]);
 	}
 
