@@ -16,7 +16,7 @@ int main()
     for (int i = 1; i <= n; i ++) 
         for (int j = 0; j <= m; j ++)
         {
-            f[i][j] = f[i - 1][j];
+            f[i][j] = f[i - 1][j];//先给f[i][j]赋值，如果空间不够(j < v[i])就不能装
             if (j >= v[i]) f[i][j] = max(f[i][j], f[i-1][j - v[i]] + w[i]);
         }
         
