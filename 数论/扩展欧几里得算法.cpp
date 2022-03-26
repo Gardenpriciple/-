@@ -11,7 +11,7 @@ int exgcd(int a, int b, int &x, int &y)
         x = 1, y = 0;
         return a;
     }//边界条件
-    int d = exgcd(b, a % b, x, y);
+    int d = exgcd(b, a % b, y, x);
     y -= a / b * x;
     return d;
 }
