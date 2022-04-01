@@ -24,7 +24,10 @@ bool check(int a, int c)
         b /= 10; //取个位再把个位删掉
         if (!x || backup[x] ) return false; //题目要求不包含0
         backup[x] = true;
-    }
+    }//创一个备份数组backup判重，st要用于恢复现场。
+    /*
+    若backup[x]真，说明x用过不行，若假，x没用过，这里b把x用了，把backup改成真，最后再判断一下是不是九个数字都被用过了
+    */
     
     for (int i = 1; i <= 9; i ++ )
         if (!backup[i])
