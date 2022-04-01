@@ -5,7 +5,12 @@
 
 using namespace std;
 
-const int N = 20;
+const int N = 20;//数组开到20是因为
+/*
+int b = n * c - a * c 这一行中的c可能有8位数，那么和n乘起来以后就会溢出int，那么b就可能变成负数，
+从而它的个位数字的余数也可能是负数，那么backup[x]的下标就可能是负数，所以下标就越界了。
+把b改成long long 即可，记得后面运算时也要转long long
+*/
 
 int n;
 bool st[N], backup[N];
