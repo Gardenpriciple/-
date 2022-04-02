@@ -15,7 +15,7 @@ bool check(int e)
     for (int i = 1; i <= n; i ++)
     {
         e = e * 2 - h[i];
-        if (e >= 1e5) return true;
+        if (e >= 1e5) return true;//防止e爆int，e太大在加减会变成负数
         if (e < 0) return false;
     }
     return true;
