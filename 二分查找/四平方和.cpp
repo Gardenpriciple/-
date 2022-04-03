@@ -9,7 +9,7 @@ const int N = 2500010;
 struct Sum
 {
     int s, c, d;
-    bool operator< (const Sum &t)const
+    bool operator< (const Sum &t)const//括号中的const表示参数a对象不会被修改，最后的const表明调用函数对象不会被修改!
     {
         if (s != t.s) return s < t.s;
         if (c != t.c) return c < t.c;
@@ -24,7 +24,7 @@ int main()
     cin >> n;
     
     for (int c = 0; c*c <= n; c++)
-        for (int d = c; c*c + d*d <= n; d ++)
+        for (int d = c; c*c + d*d <= n; d ++)//d从c开始，可以减少时间复杂度，同时保证顺序关系
             sum[m++] = {c*c + d*d, c, d};
             
     sort(sum, sum + m);
@@ -37,7 +37,7 @@ int main()
             while (l < r)
             {
                 int mid = l + r >> 1;
-                if (sum[mid].s >= t) r = mid;
+                if (sum[mid].s >= t) r = mid;//要找t，要带等号
                 else l = mid + 1;
             }//找到最接近t的sum
             if (sum[l].s == t)
