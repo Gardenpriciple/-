@@ -31,7 +31,7 @@ int bfs(Point start, Point end)
     
     while (hh <= tt)
     {
-        auto t = q[hh ++ ];//取完队头队头往后移动，所以没有pop(也是用hhtt的原因)
+        auto t = q[hh ++ ];//取完队头队头往后移动，所以没有pop(也是用hhtt的原因), 这样写不用队列
         
         for (int i = 0; i < 6; i ++ )
         {
@@ -41,7 +41,7 @@ int bfs(Point start, Point end)
             if (dist[x][y][z] != -1) continue;
             
             dist[x][y][z] = dist[t.x][t.y][t.z] + 1;
-            if (x == end.x && y == end.y && z == end.z) return dist[x][y][z];
+            if (x == end.x && y == end.y && z == end.z) return dist[x][y][z];//bug时注意看看判断条件是否正确
             
             q [ ++ tt] = {x, y, z};
         }
@@ -58,12 +58,12 @@ int main()
         for (int i = 0; i < L; i ++ )
             for (int j = 0; j < R; j ++ )
             {
-                scanf("%s", g[i][j]);
+                scanf("%s", g[i][j]);//字符串是s不是f
                 for (int k = 0; k < C; k ++)
                 {
                     char c = g[i][j][k];
                     if (c == 'S') start = {i, j, k};
-                    else if (c == 'E') end = {i, j, k}; 
+                    else if (c == 'E') end = {i, j, k}; //c记得不用双引号
                 }
             }
             
