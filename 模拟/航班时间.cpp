@@ -28,7 +28,7 @@ int main()
     int n;
     scanf("%d", &n);
     string line;
-    getline(cnt, line);//getline无法忽略第一行的回车,需要自己忽略
+    getline(cin, line);//getline无法忽略第一行的回车,需要自己忽略
     while(n--)
     {
         int time = (get_time() + get_time()) / 2;
