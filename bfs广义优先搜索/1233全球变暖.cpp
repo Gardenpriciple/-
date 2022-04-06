@@ -21,7 +21,7 @@ int dx[] = {-1, 0, 1, 0}, dy[] = {0, 1, 0, -1};
 void bfs(int sx, int sy, int &total, int &bound)//需要修改值，得用引用
 {
     int hh = 0, tt = 0;
-    q[0] = {sx, sy};
+    q[0] = {sx, sy};//bfs先传入一个起始点
     st[sx][sy] = true;
     
     while (hh <= tt)
@@ -34,14 +34,14 @@ void bfs(int sx, int sy, int &total, int &bound)//需要修改值，得用引用
         {
             int x = t.x + dx[i], y = t.y + dy[i];
             if (x < 0 || x >= n || y < 0 || y >= n) continue;
-            if (!st[x][y]) continue;
+            if (st[x][y]) continue;//不重复搜
             if (g[x][y] == '.')
             {
                 is_bound = true;
                 continue;
             }
             
-            q[ ++ tt] = {x, y};
+            q[ ++ tt] = {x, y};//往后加点
             st[x][y] = true;
         }
         
