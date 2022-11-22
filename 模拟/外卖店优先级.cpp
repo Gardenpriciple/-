@@ -41,7 +41,7 @@ int main()
         last[id] = t;//记得更新last[id]
     }
     
-    for (int i = 1; i <= n; i ++)
+    for (int i = 1; i <= n; i ++)   //最后记得上面没有处理在T没收到订单的店。
         if (last[i] < T)
         {
             score[i] -= T - last[i];
