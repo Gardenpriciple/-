@@ -13,9 +13,13 @@ int get_seconds(int h, int m, int s)
 int get_time()
 {
     string line;
-    getline(cin, line);
+    getline(cin, line); // 接受每一行到line中去
     
     if (line.back() != ')') line += "(+0)";
+
+    // 使用sscanf()来处理输入的字符串
+    // 第一个参数需要传入字符指针char* ,对于字符串line,可以调用c_str()函数来获取他的指针
+
     
     int h1, m1, s1, h2, m2, s2, d;
     sscanf(line.c_str(), "%d:%d:%d %d:%d:%d (+%d)", &h1, &m1, &s1, &h2, &m2, &s2, &d);
@@ -29,6 +33,7 @@ int main()
     scanf("%d", &n);
     string line;
     getline(cin, line);//getline无法忽略第一行的回车,需要自己忽略
+
     while(n--)
     {
         int time = (get_time() + get_time()) / 2;
